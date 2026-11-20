@@ -1,0 +1,2395 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#5c5c0a" />
+  <meta name="description" content="Thales e Carol - Nosso casamento." />
+  <title>Thales & Carol | Nosso casamento</title>
+  <style>
+    :root {
+      --forest: #5c5c0a;
+      --moss: #49624b;
+      --olive: #80966f;
+      --brown: #654a2d;
+      --beige: #ddcfb8;
+      --cream: #f8f4eb;
+      --white: #fffefa;
+      --line: rgba(32, 56, 42, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 72px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--forest);
+      font:
+        16px/1.55 Arial,
+        Helvetica,
+        sans-serif;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--beige);
+      outline-offset: 3px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 44px));
+      margin: auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 11px;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .serif,
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .notice {
+      padding: 9px 16px;
+      background: var(--forest);
+      color: var(--beige);
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.4px;
+    }
+
+    .notice strong {
+      color: var(--white);
+    }
+
+    header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      background: rgba(255, 254, 250, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      transition: box-shadow 0.3s ease;
+    }
+
+    header.scrolled {
+      box-shadow: 0 4px 22px rgba(20, 52, 35, 0.12);
+    }
+
+    .nav {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo-link {
+      display: block;
+      width: 54px;
+      height: 48px;
+      overflow: hidden;
+      flex: none;
+    }
+
+    .logo-link img {
+      display: block;
+      width: 142px;
+      height: 142px;
+      margin: -46px 0 0 -44px;
+      mix-blend-mode: screen;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover {
+      color: var(--olive);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 17px;
+      border: 1px solid var(--forest);
+      background: var(--forest);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition:
+        background 0.2s,
+        transform 0.2s;
+    }
+
+    .button:hover {
+      background: var(--moss);
+      transform: translateY(-2px);
+    }
+
+    .button.outline {
+      background: transparent;
+      color: inherit;
+    }
+
+    .button.outline:hover {
+      background: var(--white);
+      color: var(--forest);
+    }
+
+    .hero {
+      min-height: 700px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      color: var(--white);
+      text-align: center;
+      background: #172d1f;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-video {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      pointer-events: none;
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* Camada de flores fixa sobrepondo literalmente tudo na tela inteira */
+    .site-flower-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    #site-flower-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(840px, calc(100% - 34px));
+      padding: 58px 20px;
+      border-radius: 28px;
+    }
+
+    .site-video-controls {
+      position: fixed;
+      bottom: 22px;
+      right: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 10000;
+    }
+
+    .video-ctrl-btn {
+      background: rgba(20, 52, 35, 0.65);
+      border: 1px solid rgba(221, 207, 184, 0.55);
+      color: var(--white);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+      padding: 0;
+    }
+
+    .video-ctrl-btn:hover {
+      background: rgba(20, 52, 35, 0.95);
+      border-color: var(--beige);
+      transform: scale(1.08);
+    }
+
+    .video-ctrl-btn:focus-visible {
+      outline: 2px solid var(--beige);
+      outline-offset: 2px;
+    }
+
+    .video-ctrl-btn svg {
+      display: block;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .site-flower-overlay {
+        display: none;
+      }
+
+      .site-video-controls {
+        display: none;
+      }
+    }
+
+    .hero-logo {
+      width: 184px;
+      height: 150px;
+      margin: 0 auto -14px;
+      overflow: hidden;
+    }
+
+    .hero-logo img {
+      display: block;
+      width: 470px;
+      height: 470px;
+      margin: -140px 0 0 -143px;
+      mix-blend-mode: screen;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(67px, 11vw, 145px);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 0.77;
+      letter-spacing: -6px;
+    }
+
+    .hero h1 span {
+      font-size: 0.62em;
+    }
+
+    .getting {
+      margin: 20px 0 25px;
+      font:
+        400 clamp(15px, 2vw, 21px)/1.2 Georgia,
+        serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero .button {
+      border-color: var(--cream);
+      background: rgba(32, 56, 42, 0.32);
+    }
+
+    .hero .button:hover {
+      background: var(--white);
+      color: var(--forest);
+    }
+
+    .hero-detail {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 82px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 254, 250, 0.55);
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .hero-detail span:last-child {
+      text-align: right;
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    h2 {
+      margin-bottom: 19px;
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: -2.6px;
+    }
+
+    .countdown-section {
+      padding: 44px 0 50px;
+      background: var(--forest);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(70px, 130px));
+      justify-content: center;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .countdown div {
+      padding: 12px 14px;
+      background: rgba(255, 254, 250, 0.08);
+      border: 1px solid rgba(221, 207, 184, 0.25);
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .countdown b {
+      display: block;
+      font:
+        400 clamp(40px, 5vw, 61px)/0.95 Georgia,
+        serif;
+    }
+
+    .countdown span {
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .about {
+      background: var(--beige);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 272px 1fr;
+      gap: 36px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .about-copy:first-child {
+      justify-self: end;
+      text-align: right;
+    }
+
+    .about-copy:last-child {
+      justify-self: start;
+      text-align: left;
+    }
+
+    .about-copy h2 {
+      font-size: 31px;
+      letter-spacing: -1px;
+    }
+
+    .portrait {
+      height: 332px;
+      margin: 0;
+      padding: 10px;
+      background: #b6a485;
+      transform: rotate(1.6deg);
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) sepia(0.4) contrast(0.9);
+    }
+
+    .our-story {
+      grid-column: 1/-1;
+      max-width: 690px;
+      margin: 4px auto 0;
+      font-size: 15px;
+    }
+
+    .image-band {
+      min-height: 390px;
+      position: relative;
+      background:
+        linear-gradient(rgba(32, 56, 42, 0.22), rgba(32, 56, 42, 0.22)),
+        url("IMG_2852.PNG") center 44% / cover;
+      filter: grayscale(1) sepia(0.52) contrast(0.9);
+    }
+
+    .image-band:after {
+      position: absolute;
+      right: 7%;
+      bottom: 10%;
+      color: var(--white);
+      font:
+        italic 55px/1 Georgia,
+        serif;
+      text-shadow: 0 2px 14px var(--forest);
+    }
+
+    .information {
+      background: var(--cream);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 76px;
+    }
+
+    .info-grid h2 {
+      font-size: 43px;
+    }
+
+    .program {
+      border-top: 1px solid var(--line);
+    }
+
+    .program-row {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .program-row b {
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 25px;
+    }
+
+    .info-list h3 {
+      margin-bottom: 5px;
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    .info-list p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .map-btn-wrapper {
+      --btn-color: #f5101b;
+      --text-color: #fff;
+      --land-color: #ffdd9f;
+      --veg-color: #36ad5aa9;
+      --water-color: #b3e3ff;
+      --transition-dur: 0.3s;
+
+      position: relative;
+      display: flex;
+      margin-top: 18px;
+
+      font-size: 16px;
+      font-family: "Inter", sans-serif;
+
+      user-select: none;
+      overflow: hidden;
+      border-radius: 50ch;
+
+      box-shadow:
+        0px -1px 2px rgba(3, 7, 18, 0.005),
+        0px -5px 6px rgba(3, 7, 18, 0.009),
+        0px -12px 12px rgba(3, 7, 18, 0.015),
+        0px -20px 22px rgba(3, 7, 18, 0.02),
+        0px -32px 32px rgba(3, 7, 18, 0.06);
+
+      transition: transform var(--transition-dur) ease;
+    }
+
+    .map-btn {
+      cursor: pointer;
+      padding: 1em 1.5em 1em 3.5em;
+
+      border-radius: 50ch;
+
+      background-color: var(--btn-color);
+
+      color: var(--text-color);
+      font-weight: 600;
+      text-decoration: none;
+
+      transition:
+        color var(--transition-dur) ease-in-out,
+        background-color var(--transition-dur) ease-in-out;
+    }
+
+    .pinpoint {
+      pointer-events: none;
+      position: absolute;
+      height: 60%;
+      aspect-ratio: 1;
+      top: 20%;
+      left: 0.75em;
+
+      border-radius: 50% 50% 50% 50%;
+      background-color: var(--text-color);
+      transform: rotateZ(45deg);
+
+      mask-image: radial-gradient(circle at center, #0000 0%, #0000 32%, #fff 36%);
+      filter: blur(0.25px);
+
+      transition:
+        background-color var(--transition-dur) ease-in-out,
+        transform var(--transition-dur) ease-in-out,
+        border-radius calc(var(--transition-dur) + 0.1s) ease;
+      z-index: 3;
+    }
+
+    .map-container {
+      pointer-events: none;
+      position: absolute;
+      left: 0px;
+      top: 115px;
+      perspective: 120px;
+      transform: perspective(120px) rotateX(35deg) scaleX(0);
+      transform-origin: 3em 0.5em;
+
+      transition:
+        transform var(--transition-dur) ease-in-out,
+        opacity var(--transition-dur) ease-in-out;
+      opacity: 0;
+      z-index: 0;
+    }
+
+    .map {
+      position: absolute;
+      bottom: 100px;
+      width: 120px;
+      height: 200px;
+      background-color: var(--water-color);
+      background-image: linear-gradient(to bottom, #fff2, 30%, #0000);
+      transform-origin: left bottom;
+    }
+
+    .map::after {
+      content: "";
+      top: -40px;
+      left: 12px;
+      width: 100%;
+      height: 200%;
+      position: absolute;
+      background-color: var(--land-color);
+      filter: url(#land);
+      box-shadow: inset 0 0 48px 24px var(--veg-color);
+      z-index: 0;
+    }
+
+    .fold-1,
+    .fold-2,
+    .fold-3,
+    .fold-4 {
+      mask-image: linear-gradient(to top, #fff, 97%, #0000);
+      overflow: hidden;
+    }
+
+    .fold-1 {
+      left: -60px;
+      transform: rotateY(10deg) translateZ(30px);
+    }
+
+    .fold-2 {
+      left: 60px;
+      transform: rotateY(-10deg) translateZ(10px);
+    }
+
+    .fold-3 {
+      left: -169px;
+      transform: rotateY(-15deg) translateZ(-1px);
+    }
+
+    .fold-4 {
+      left: 166px;
+      transform: rotateY(15deg) translateZ(31px);
+    }
+
+    .fold-1::before,
+    .fold-2::before,
+    .fold-3::before,
+    .fold-4::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 10px 16px 3px #0004;
+      z-index: 1;
+    }
+
+    .map-btn-wrapper:has(.map-btn:hover),
+    .map-btn-wrapper:has(.map-btn:focus-visible) {
+      transform: scale(1.1);
+    }
+
+    .map-btn:hover,
+    .map-btn:focus-visible {
+      background-color: var(--text-color);
+      color: #00000025;
+    }
+
+    .map-btn:hover + .pinpoint,
+    .map-btn:focus-visible + .pinpoint {
+      background-color: var(--btn-color);
+      border-radius: 50% 50% 0 50%;
+      transform: rotateZ(45deg) translate(-0.3em, -0.3em);
+    }
+
+    .map-btn:hover ~ .map-container,
+    .map-btn:focus-visible ~ .map-container {
+      transform: perspective(100px) rotateX(35deg) scaleX(0.85);
+      opacity: 1;
+    }
+
+    .map-btn-wrapper:has(.map-btn:active) {
+      transform: scale(1.02) translateY(0.2em);
+    }
+
+    .map-btn:active + .pinpoint {
+      transform: rotateZ(45deg) translate(0em, 0em);
+      transition-duration: calc(var(--transition-dur) * 0.5);
+    }
+
+    .map-btn:active ~ .map-container {
+      transform: perspective(95px) rotateX(35deg) scaleX(0.85);
+      transition-duration: calc(var(--transition-dur) * 0.5);
+    }
+
+    .gallery {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .section-head h2 {
+      margin-bottom: 0;
+    }
+
+    .gallery-actions {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .filters {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 254, 250, 0.45);
+      background: transparent;
+      color: var(--white);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .chip[aria-pressed="true"] {
+      background: var(--white);
+      color: var(--forest);
+    }
+
+    .gallery .button {
+      border-color: var(--beige);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .gallery-empty {
+      grid-column: 1/-1;
+      display: grid;
+      place-items: center;
+      min-height: 210px;
+      padding: 32px;
+      border: 1px dashed rgba(255, 254, 250, 0.5);
+      text-align: center;
+      color: #e8e0d4;
+    }
+
+    .gallery-empty p {
+      max-width: 470px;
+      margin: 0 auto 15px;
+    }
+
+    .photo-card {
+      overflow: hidden;
+      background: var(--moss);
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(20, 52, 35, 0.18);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(20, 52, 35, 0.32);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1/1.13;
+      object-fit: cover;
+      filter: sepia(0.2) saturate(0.8);
+      cursor: pointer;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.04);
+      filter: sepia(0.1) saturate(0.95);
+    }
+
+    .photo-body {
+      padding: 14px;
+    }
+
+    .photo-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 7px;
+      color: #e5dccd;
+      font-size: 11px;
+    }
+
+    .photo-author {
+      margin-top: 5px;
+      font:
+        400 19px Georgia,
+        serif;
+    }
+
+    .photo-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 13px;
+    }
+
+    .vote-button {
+      padding: 6px 0;
+      border: 0;
+      border-bottom: 1px solid var(--beige);
+      background: transparent;
+      color: var(--white);
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .helper {
+      text-align: center;
+      margin: 25px 0 0;
+      color: #e8e0d4;
+      font-size: 12px;
+    }
+
+    .registry {
+      background: var(--beige);
+    }
+
+    .registry-intro {
+      max-width: 360px;
+      margin: 0;
+      color: #4b533d;
+    }
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .gift {
+      display: flex;
+      min-height: 235px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 19px;
+      border: 1px solid rgba(32, 56, 42, 0.4);
+      background: rgba(255, 254, 250, 0.24);
+      border-radius: 6px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gift:hover:not(.reserved) {
+      transform: translateY(-3px);
+      border-color: var(--forest);
+      box-shadow: 0 8px 20px rgba(32, 56, 42, 0.12);
+    }
+
+    .gift-number {
+      font:
+        italic 26px Georgia,
+        serif;
+      color: var(--brown);
+    }
+
+    .gift h3 {
+      margin: 31px 0 5px;
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    .gift p {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .gift .button {
+      width: 100%;
+      margin-top: 22px;
+    }
+
+    .gift.reserved {
+      background: rgba(73, 98, 75, 0.14);
+    }
+
+    .gift.reserved .button {
+      border-color: var(--moss);
+      background: transparent;
+      color: var(--forest);
+      cursor: default;
+    }
+
+    .rsvp {
+      background: var(--cream);
+    }
+
+    .rsvp-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 82px;
+      align-items: start;
+    }
+
+    .rsvp-copy {
+      padding-top: 10px;
+    }
+
+    .rsvp-copy p {
+      max-width: 350px;
+      color: #4b533d;
+    }
+
+    .rsvp-form {
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      margin-bottom: 18px;
+      padding: 12px;
+      border: 1px solid rgba(32, 56, 42, 0.35);
+      background: var(--cream);
+      color: var(--forest);
+    }
+
+    textarea {
+      min-height: 86px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .message {
+      min-height: 21px;
+      margin: 12px 0 0;
+      color: var(--moss);
+      font-size: 13px;
+    }
+
+    .contest {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .contest-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 70px;
+    }
+
+    .contest-grid h2 {
+      font-size: 58px;
+    }
+
+    .contest-copy,
+    .rules {
+      max-width: 500px;
+      color: #e7dfd2;
+    }
+
+    .rules {
+      margin: 23px 0;
+      padding-left: 19px;
+      font-size: 14px;
+    }
+
+    .rules li {
+      margin: 9px 0;
+    }
+
+    .ranking {
+      padding: 28px;
+      background: var(--beige);
+      color: var(--forest);
+    }
+
+    .ranking h3 {
+      margin-bottom: 5px;
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    .rank-empty {
+      display: grid;
+      place-items: center;
+      min-height: 140px;
+      text-align: center;
+      color: #52604a;
+      font-size: 14px;
+    }
+
+    .rank-row {
+      display: grid;
+      grid-template-columns: 28px 50px 1fr auto;
+      gap: 11px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(32, 56, 42, 0.22);
+    }
+
+    .rank-row:last-child {
+      border: 0;
+    }
+
+    .rank-row img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      filter: sepia(0.2);
+    }
+
+    .rank-row b {
+      font:
+        400 16px Georgia,
+        serif;
+    }
+
+    .rank-row span {
+      font-size: 12px;
+    }
+
+    footer {
+      padding: 71px 0 28px;
+      background: var(--forest);
+      color: var(--beige);
+      text-align: center;
+    }
+
+    footer h2 {
+      color: var(--white);
+      font-style: italic;
+    }
+
+    .contact {
+      display: flex;
+      justify-content: center;
+      gap: 43px;
+      flex-wrap: wrap;
+      margin: 42px 0;
+      font-size: 13px;
+    }
+
+    .contact a {
+      text-decoration: none;
+    }
+
+    .credit {
+      color: #adbb9b;
+      font-size: 10px;
+    }
+
+    dialog {
+      width: min(530px, calc(100% - 28px));
+      max-height: 92vh;
+      padding: 0;
+      border: 0;
+      background: var(--cream);
+      color: var(--forest);
+      box-shadow: 0 20px 60px rgba(20, 52, 35, 0.4);
+    }
+
+    dialog::backdrop {
+      background: rgba(20, 52, 35, 0.72);
+      backdrop-filter: blur(3px);
+    }
+
+    .modal {
+      padding: 28px;
+    }
+
+    .modal-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .modal-top h2 {
+      margin-bottom: 3px;
+      font-size: 40px;
+    }
+
+    .close {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--forest);
+      font-size: 23px;
+    }
+
+    .modal-note {
+      margin: 14px 0 20px;
+      padding: 12px;
+      background: var(--beige);
+      font-size: 12px;
+    }
+
+    .file-status,
+    .error {
+      min-height: 20px;
+      margin: -8px 0 14px;
+      font-size: 12px;
+    }
+
+    .error {
+      margin: 10px 0 0;
+      color: var(--brown);
+    }
+
+    #toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 20;
+      max-width: 360px;
+      padding: 13px 16px;
+      background: var(--forest);
+      color: var(--white);
+      font-size: 14px;
+      box-shadow: 0 10px 25px rgba(20, 52, 35, 0.28);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 25;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--forest);
+      color: var(--beige);
+      border: 1px solid rgba(221, 207, 184, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background 0.2s;
+      box-shadow: 0 6px 18px rgba(20, 52, 35, 0.32);
+      padding: 0;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: var(--moss);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 800px) {
+      .shell {
+        width: min(100% - 32px, 1180px);
+      }
+
+      .nav-links a:not(.nav-action) {
+        display: none;
+      }
+
+      .nav-links {
+        gap: 8px;
+      }
+
+      .nav .button {
+        padding: 9px 12px;
+      }
+
+      .hero {
+        min-height: 620px;
+      }
+
+      .hero-detail {
+        margin-top: 72px;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .about-copy:first-child,
+      .about-copy:last-child {
+        justify-self: center;
+        text-align: center;
+      }
+
+      .portrait {
+        width: 240px;
+        height: 290px;
+        justify-self: center;
+        grid-row: 1;
+      }
+
+      .our-story {
+        grid-column: auto;
+      }
+
+      .image-band {
+        min-height: 300px;
+      }
+
+      .info-grid,
+      .rsvp-grid,
+      .contest-grid {
+        grid-template-columns: 1fr;
+        gap: 46px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .gift-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .contest-grid h2 {
+        font-size: 49px;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .hero h1 {
+        font-size: 76px;
+        letter-spacing: -4px;
+      }
+
+      .hero-detail {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+      }
+
+      .hero-detail span:last-child {
+        text-align: center;
+      }
+
+      .countdown {
+        gap: 6px;
+      }
+
+      .countdown div {
+        padding: 8px 4px;
+      }
+
+      .countdown b {
+        font-size: 32px;
+      }
+
+      .countdown span {
+        font-size: 8px;
+        letter-spacing: 0.8px;
+      }
+
+      .gallery-grid,
+      .gift-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .site-video-controls {
+        bottom: 14px;
+        right: 14px;
+        gap: 6px;
+      }
+
+      .video-ctrl-btn {
+        width: 32px;
+        height: 32px;
+      }
+
+      .video-ctrl-btn svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .image-band:after {
+        font-size: 37px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Camada de flores animadas fixa na tela inteira, sobrepondo tudo com fundo 100% transparente -->
+  <div class="site-flower-overlay" aria-hidden="true">
+    <video
+      id="hero-flower-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      style="position: fixed; bottom: 0; left: 0; width: 320px; height: 180px; opacity: 0.001; pointer-events: none; z-index: -10;"
+    >
+      <source src="flores-animacao.mp4" type="video/mp4" />
+      <source src="Flowers_swaying_in_light_breeze_451ca2f6.mp4" type="video/mp4" />
+    </video>
+    <canvas id="site-flower-canvas"></canvas>
+  </div>
+
+  <!-- Controles da animação de flores fixos na tela -->
+  <div class="site-video-controls" aria-label="Controles da animação">
+    <button type="button" class="video-ctrl-btn" id="hero-play-pause-btn" aria-label="Pausar animação"
+      title="Pausar animação">
+      <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+      </svg>
+      <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"
+        style="display:none;">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </button>
+    <button type="button" class="video-ctrl-btn" id="hero-sound-btn" aria-label="Ativar som ambiente"
+      title="Ativar som">
+      <svg class="icon-muted" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+        <path
+          d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+      </svg>
+      <svg class="icon-unmuted" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"
+        style="display:none;">
+        <path
+          d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="notice">
+    <strong>MODELO DE DEMONSTRAÇÃO</strong> · Personalize nomes, data, local e
+    lista de presentes.
+  </div>
+  <header>
+    <nav class="nav shell" aria-label="Navegação principal">
+      <a class="logo-link" href="#inicio" aria-label="Alex e Dani"><img src="monograma-alex-dani.jpg" alt="" /></a>
+      <div class="nav-links">
+        <a href="#nos">Sobre nós</a><a href="#informacoes">Informações</a><a href="#album">Fotos</a><a
+          href="#presentes">Presentes</a><a class="button nav-action" href="#rsvp">Confirmar presença</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="Video_Project.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-inner">
+        <h1>Thales <span>&amp;</span> Caroline</h1>
+        <p class="getting">15 de abril de 2028</p>
+        <a class="button" href="#rsvp">Confirmar presença</a>
+        <div class="hero-detail">
+          <span>15.04.2028 · 16h</span><span>Fazenda Vista da Serra · MG</span>
+        </div>
+      </div>
+    </section>
+    <section class="countdown-section">
+      <div class="shell">
+        <p class="eyebrow">Contagem regressiva para o nosso dia</p>
+        <div class="countdown" aria-live="polite">
+          <div><b id="days">000</b><span>dias</span></div>
+          <div><b id="hours">00</b><span>horas</span></div>
+          <div><b id="minutes">00</b><span>minutos</span></div>
+          <div><b id="seconds">00</b><span>segundos</span></div>
+        </div>
+        <div style="margin-top: 26px;">
+          <a class="button outline"
+            style="border-color: rgba(221, 207, 184, 0.6); color: var(--white); font-size: 11px; padding: 10px 20px; letter-spacing: 1px;"
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Casamento+Alex+%26+Dani&dates=20270918T150000Z/20270918T230000Z&details=Casamento+de+Alex+e+Dani+no+Jardim+Aurora.+Esperamos+por+voc%C3%AA!&location=Jardim+Aurora%2C+Lisboa"
+            target="_blank" rel="noopener">
+            📅 Adicionar à minha agenda
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="about" id="nos">
+      <div class="shell about-grid">
+        <div class="about-copy">
+          <p class="eyebrow">O nosso amor</p>
+          <h2>Pelos jardins<br />e um pelo outro.</h2>
+        </div>
+        <figure class="portrait">
+          <img src="https://images.unsplash.com/photo-1654499002304-33b6db6783d7?auto=format&fit=crop&fm=jpg&q=85&w=700"
+            alt="Casal caminhando em um campo florido." />
+        </figure>
+        <div class="about-copy">
+          <p class="eyebrow">Nossa história</p>
+          <h2>Leve, inteira<br />e muito nossa.</h2>
+        </div>
+        <p class="our-story">
+          Este espaço é para a história de vocês: onde se conheceram, o que
+          tornou tudo especial e a razão de escolherem caminhar juntos.
+          Troquem este texto pelos detalhes que farão os convidados sorrirem e
+          se emocionarem.
+        </p>
+      </div>
+    </section>
+    <section class="image-band" aria-label="Foto ilustrativa do casal">    </section>
+    <section class="information" id="informacoes">
+      <div class="shell info-grid">
+        <div>
+          <p class="eyebrow">O grande dia</p>
+          <h2>Programação</h2>
+          <div class="program">
+            <div class="program-row">
+              <b>15:30</b><span>Chegada dos convidados e boas-vindas</span>
+            </div>
+            <div class="program-row"><b>16:00</b><span>Cerimônia</span></div>
+            <div class="program-row">
+              <b>17:15</b><span>Fotos e cocktails</span>
+            </div>
+            <div class="program-row">
+              <b>19:00</b><span>Jantar e brindes</span>
+            </div>
+            <div class="program-row">
+              <b>21:00</b><span>Festa até a última música</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p> </p>
+          <h2>Informações</h2>
+          <div class="info-list">
+            <article>
+              <h3>Cerimônia</h3>
+              <p>
+                Rua Rio Quebra Anzol, 171, Bairro Residencial Vista da Serra - Igarapé / MG.
+              </p>
+              <div class="map-btn-wrapper">
+                <svg height="0" width="0">
+                  <filter id="land">
+                    <feTurbulence
+                      result="turb"
+                      numOctaves="7"
+                      baseFrequency="0.006"
+                      type="fractalNoise"
+                    ></feTurbulence>
+                    <feDisplacementMap
+                      yChannelSelector="G"
+                      xChannelSelector="R"
+                      scale="700"
+                      in="SourceGraphic"
+                      in2="turb"
+                    ></feDisplacementMap>
+                  </filter>
+                </svg>
+                <a
+                  class="map-btn"
+                  href="https://www.google.com/maps/search/?api=1&query=Rua+Rio+Quebra+Anzol%2C+171%2C+Residencial+Vista+da+Serra%2C+Igarap%C3%A9%2C+MG"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Abrir o local da cerimônia no Google Maps"
+                >Ver no mapa</a>
+                <span class="pinpoint" aria-hidden="true"></span>
+                <span class="map-container" aria-hidden="true">
+                  <span class="map fold-1"></span>
+                  <span class="map fold-2"></span>
+                  <span class="map fold-3"></span>
+                  <span class="map fold-4"></span>
+                </span>
+              </div>
+            </article>
+            <article>
+              <h3>Traje</h3>
+              <p>
+                Elegante e confortável. Branco e brilho estão estritamente proibidos; leve algo
+                para o frescor da noite.
+              </p>
+            </article>
+            <article>
+              <h3>Estacionamento</h3>
+              <p>
+                Há estacionamento no local e área de desembarque na entrada.
+                Avise-nos no RSVP se precisar de apoio.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="gallery" id="album">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Memórias do dia</p>
+            <h2>Nosso álbum.</h2>
+          </div>
+          <div class="gallery-actions">
+            <div class="filters" aria-label="Filtrar fotos">
+              <button class="chip" data-filter="Todos" aria-pressed="true">
+                Todos</button><button class="chip" data-filter="Cerimônia" aria-pressed="false">
+                Cerimônia</button><button class="chip" data-filter="Festa" aria-pressed="false">
+                Festa</button><button class="chip" data-filter="Outros momentos" aria-pressed="false">
+                Momentos
+              </button>
+            </div>
+            <button class="button outline" data-upload>
+              Adicionar fotos
+            </button>
+          </div>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+        <p class="helper">
+          Neste modelo, as fotos ficam apenas nesta sessão. A versão publicada
+          poderá reunir as memórias de todos.
+        </p>
+      </div>
+    </section>
+    <section class="registry" id="presentes">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Um gesto de carinho</p>
+            <h2>Lista de presentes.</h2>
+          </div>
+          <p class="registry-intro">
+            A presença de vocês é o que mais importa. Se quiserem nos
+            presentear, escolham um item que gostariam de oferecer.
+          </p>
+        </div>
+        <div class="gift-grid" id="gift-grid"></div>
+        <p class="helper" style="color: #52604a">
+          As reservas são uma simulação local neste modelo.
+        </p>
+      </div>
+    </section>
+    <section class="rsvp" id="rsvp">
+      <div class="shell rsvp-grid">
+        <div class="rsvp-copy">
+          <p class="eyebrow">Esperamos você</p>
+          <h2>Confirme sua presença.</h2>
+          <p>
+            Preencha até 20 de agosto de 2027 para nos ajudar a preparar tudo
+            com carinho.
+          </p>
+        </div>
+        <form class="rsvp-form" id="rsvp-form">
+          <div class="form-row">
+            <div>
+              <label for="rsvp-name">Seu nome</label><input id="rsvp-name" name="name" required maxlength="80"
+                autocomplete="name" placeholder="Nome e sobrenome" />
+            </div>
+            <div>
+              <label for="rsvp-guests">Quantas pessoas?</label><select id="rsvp-guests" name="guests" required>
+                <option value="">Escolha</option>
+                <option>1 pessoa</option>
+                <option>2 pessoas</option>
+                <option>3 pessoas</option>
+                <option>4 pessoas</option>
+              </select>
+            </div>
+          </div>
+          <label for="rsvp-status">Você poderá vir?</label><select id="rsvp-status" name="status" required>
+            <option value="">Escolha</option>
+            <option value="sim">Sim, estaremos lá</option>
+            <option value="nao">Não conseguiremos comparecer</option>
+          </select><label for="rsvp-note">Alguma observação?</label><textarea id="rsvp-note" name="note" maxlength="300"
+            placeholder="Restrições alimentares, necessidades especiais ou um recado para nós."></textarea><button
+            class="button" type="submit">Enviar confirmação</button>
+          <p class="message" id="rsvp-message" role="status"></p>
+        </form>
+      </div>
+    </section>
+    <section class="contest" id="concurso">
+      <div class="shell contest-grid">
+        <div>
+          <p class="eyebrow">Concurso de fotografia</p>
+          <h2>Um clique.<br />Uma lembrança.</h2>
+          <p class="contest-copy">
+            Registrem o dia pelo olhar de vocês. Enviem as fotos para o álbum
+            e escolham a favorita. A imagem com mais votos ganha um pequeno
+            presente do casal.
+          </p>
+          <ol class="rules">
+            <li>Envie até 3 fotos.</li>
+            <li>
+              Cada convidado usa um único código para votar em uma foto.
+            </li>
+            <li>
+              O ranking aparece aqui e o casal escolhe em caso de empate.
+            </li>
+          </ol>
+          <a class="button outline" href="#album">Enviar ou escolher uma foto</a>
+        </div>
+        <aside class="ranking">
+          <p class="eyebrow">Fotos favoritas</p>
+          <h3>Ranking do dia</h3>
+          <div id="ranking-list">
+            <div class="rank-empty">
+              Assim que as fotos receberem votos, as favoritas aparecerão
+              aqui.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="shell">
+      <p class="eyebrow">Com carinho</p>
+      <h2>Até breve.</h2>
+      <div class="contact">
+        <a href="tel:+351210000000">+351 210 000 000</a><a
+          href="mailto:alexedani@exemplo.com">alexedani@exemplo.com</a><a href="#rsvp">Confirmar presença</a>
+      </div>
+      <p class="credit">Fotografia ilustrativa: pai pai / Unsplash</p>
+    </div>
+  </footer>
+  <dialog id="upload-dialog">
+    <div class="modal">
+      <div class="modal-top">
+        <div>
+          <p class="eyebrow">Álbum colaborativo</p>
+          <h2>Suas fotos</h2>
+        </div>
+        <button class="close" type="button" data-close aria-label="Fechar">
+          ×
+        </button>
+      </div>
+      <form id="upload-form">
+        <label for="photo-author">Seu nome</label><input id="photo-author" required maxlength="60" autocomplete="name"
+          placeholder="Como quer aparecer no álbum?" /><label for="photo-moment">Momento</label><select
+          id="photo-moment">
+          <option>Cerimônia</option>
+          <option>Festa</option>
+          <option>Outros momentos</option>
+        </select><label for="photo-files">Escolha as fotos</label><input id="photo-files" type="file"
+          accept="image/jpeg,image/png,image/webp" multiple required />
+        <p class="file-status" id="file-status" aria-live="polite"></p>
+        <p class="modal-note">
+          Prévia local: os arquivos não saem deste dispositivo e desaparecem
+          quando a página é recarregada.
+        </p>
+        <p class="error" id="upload-error" role="alert"></p>
+        <button class="button" type="submit">Adicionar ao álbum</button>
+      </form>
+    </div>
+  </dialog>
+  <dialog id="gift-dialog">
+    <div class="modal">
+      <div class="modal-top">
+        <div>
+          <p class="eyebrow">Lista de presentes</p>
+          <h2>Reservar presente</h2>
+        </div>
+        <button class="close" type="button" data-close aria-label="Fechar">
+          ×
+        </button>
+      </div>
+      <p id="gift-selection"></p>
+      <div
+        style="margin: 16px 0; padding: 12px; background: rgba(73, 98, 75, 0.12); border-left: 3px solid var(--moss); font-size: 12px;">
+        <strong style="display:block; margin-bottom: 4px; color: var(--forest);">Chave PIX / Transferência do
+          casal:</strong>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+          <code id="pix-key-val"
+            style="background: var(--white); padding: 4px 8px; border: 1px solid var(--line); font-size: 11px;">alexedani@exemplo.com</code>
+          <button type="button" class="button outline" id="copy-pix-btn"
+            style="padding: 5px 10px; min-height: 28px; font-size: 10px;">Copiar</button>
+        </div>
+      </div>
+      <form id="gift-form">
+        <label for="gift-name">Seu nome</label><input id="gift-name" required maxlength="60" autocomplete="name"
+          placeholder="Como o casal verá a reserva?" />
+        <p class="modal-note">
+          Esta reserva é local. Na versão publicada, o item ficará reservado
+          para todos os convidados.
+        </p>
+        <p class="error" id="gift-error" role="alert"></p>
+        <button class="button" type="submit">Reservar este presente</button>
+      </form>
+    </div>
+  </dialog>
+  <dialog id="vote-dialog">
+    <div class="modal">
+      <div class="modal-top">
+        <div>
+          <p class="eyebrow">Concurso de fotografia</p>
+          <h2>Sua favorita</h2>
+        </div>
+        <button class="close" type="button" data-close aria-label="Fechar">
+          ×
+        </button>
+      </div>
+      <p>Você tem um único voto em todo o concurso.</p>
+      <form id="vote-form">
+        <label for="vote-code">Código do convidado</label><input id="vote-code" required maxlength="20"
+          autocomplete="off" placeholder="CONVIDADO01" />
+        <p class="modal-note">
+          Para testar: CONVIDADO01, CONVIDADO02 ou CONVIDADO03.
+        </p>
+        <p class="error" id="vote-error" role="alert"></p>
+        <button class="button" type="submit">Confirmar voto</button>
+      </form>
+    </div>
+  </dialog>
+  <dialog id="photo-preview-dialog">
+    <div class="modal" style="max-width: 600px;">
+      <div class="modal-top">
+        <div>
+          <p class="eyebrow" id="preview-moment">Momento</p>
+          <h2 id="preview-author" style="font-size: 28px; margin-bottom: 2px;">Autor</h2>
+        </div>
+        <button class="close" type="button" data-close aria-label="Fechar">
+          ×
+        </button>
+      </div>
+      <div style="margin: 14px 0; background: #142a1c; overflow: hidden; border-radius: 4px; text-align: center;">
+        <img id="preview-img" src="" alt=""
+          style="display: block; width: 100%; max-height: 60vh; object-fit: contain; margin: auto;" />
+      </div>
+      <div
+        style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px;">
+        <span id="preview-votes" style="font-size: 13px; font-weight: bold; color: var(--moss);">0 votos</span>
+        <button class="button" id="preview-vote-btn" type="button">Votar nesta foto</button>
+      </div>
+    </div>
+  </dialog>
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Voltar ao início" title="Voltar ao início">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+      <path d="M12 4l-8 8h5v8h6v-8h5z" />
+    </svg>
+  </button>
+  <div id="toast" role="status" hidden></div>
+  <script>
+    "use strict";
+    const $ = (id) => document.getElementById(id),
+      photos = [],
+      votes = new Map(),
+      codes = new Set(["CONVIDADO01", "CONVIDADO02", "CONVIDADO03"]);
+    const gifts = [
+      [
+        "g1",
+        "Jogo de taças para brindes",
+        "Para os brindes que ainda virão.",
+        "01",
+      ],
+      [
+        "g2",
+        "Fim de semana a dois",
+        "Uma pequena viagem depois da festa.",
+        "02",
+      ],
+      ["g3", "Jantar especial", "Uma noite para celebrar o começo.", "03"],
+      [
+        "g4",
+        "Planta para nosso lar",
+        "Para crescer junto com a nossa história.",
+        "04",
+      ],
+      ["g5", "Conjunto de mesa", "Para receber quem amamos.", "05"],
+      [
+        "g6",
+        "Experiência gastronômica",
+        "Mais uma memória para a nossa coleção.",
+        "06",
+      ],
+      ["g7", "Quadro para a casa", "Um detalhe com significado.", "07"],
+      [
+        "g8",
+        "Ajuda para a lua de mel",
+        "Para um capítulo inesquecível.",
+        "08",
+      ],
+    ].map(([id, name, detail, number]) => ({ id, name, detail, number }));
+    let filter = "Todos",
+      chosenGift,
+      chosenPhoto,
+      nextPhoto = 0,
+      toastTimer;
+    const read = (k, f) => {
+      try {
+        return JSON.parse(localStorage.getItem(k)) || f;
+      } catch {
+        return f;
+      }
+    },
+      write = (k, v) => {
+        try {
+          localStorage.setItem(k, JSON.stringify(v));
+        } catch { }
+      },
+      reservations = read("alex-dani-gift-reservations", {});
+    function pad(n, s) {
+      return String(Math.max(0, n)).padStart(s, "0");
+    }
+    function updateClock() {
+      const s = Math.max(
+        0,
+        Math.floor(
+          (new Date("2028-04-15T15:30:00+04:00") - Date.now()) / 1000,
+        ),
+      );
+      $("days").textContent = pad(Math.floor(s / 86400), 3);
+      $("hours").textContent = pad(Math.floor((s % 86400) / 3600), 2);
+      $("minutes").textContent = pad(Math.floor((s % 3600) / 60), 2);
+      $("seconds").textContent = pad(s % 60, 2);
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+    function say(t) {
+      $("toast").textContent = t;
+      $("toast").hidden = false;
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => ($("toast").hidden = true), 4200);
+    }
+    function open(id) {
+      $(id).showModal();
+    }
+    document
+      .querySelectorAll("[data-close]")
+      .forEach((b) => (b.onclick = () => b.closest("dialog").close()));
+    document
+      .querySelectorAll("[data-upload]")
+      .forEach((b) => (b.onclick = () => open("upload-dialog")));
+    document.querySelectorAll("[data-filter]").forEach(
+      (b) =>
+      (b.onclick = () => {
+        filter = b.dataset.filter;
+        document
+          .querySelectorAll("[data-filter]")
+          .forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+        renderGallery();
+      }),
+    );
+    function renderGifts() {
+      const grid = $("gift-grid");
+      grid.replaceChildren();
+      gifts.forEach((g) => {
+        const owner = reservations[g.id],
+          card = document.createElement("article");
+        card.className = "gift" + (owner ? " reserved" : "");
+        card.innerHTML =
+          '<div><span class="gift-number">' +
+          g.number +
+          '</span><h3></h3><p></p></div><button class="button" type="button"></button>';
+        card.querySelector("h3").textContent = g.name;
+        card.querySelector("p").textContent = owner
+          ? "Reservado por " + owner + "."
+          : g.detail;
+        const b = card.querySelector("button");
+        b.textContent = owner ? "Já reservado" : "Quero presentear";
+        b.disabled = !!owner;
+        if (!owner)
+          b.onclick = () => {
+            chosenGift = g;
+            $("gift-selection").textContent = g.name + " - " + g.detail;
+            $("gift-form").reset();
+            $("gift-error").textContent = "";
+            open("gift-dialog");
+          };
+        grid.append(card);
+      });
+    }
+    function renderRanking() {
+      const list = $("ranking-list"),
+        ranked = photos
+          .filter((p) => p.votes)
+          .sort((a, b) => b.votes - a.votes || a.id - b.id)
+          .slice(0, 3);
+      list.replaceChildren();
+      if (!ranked.length) {
+        list.innerHTML =
+          '<div class="rank-empty">Assim que as fotos receberem votos, as favoritas aparecerão aqui.</div>';
+        return;
+      }
+      ranked.forEach((p, i) => {
+        const r = document.createElement("div");
+        r.className = "rank-row";
+        r.innerHTML =
+          "<b>" +
+          String(i + 1).padStart(2, "0") +
+          '</b><img alt=""><span></span><b></b>';
+        r.querySelector("img").src = p.url;
+        r.querySelector("span").textContent = p.author + " · " + p.moment;
+        r.querySelectorAll("b")[1].textContent =
+          p.votes + " voto" + (p.votes === 1 ? "" : "s");
+        list.append(r);
+      });
+    }
+    function renderGallery() {
+      const grid = $("gallery-grid"),
+        shown = photos.filter(
+          (p) => filter === "Todos" || p.moment === filter,
+        );
+      grid.replaceChildren();
+      if (!shown.length) {
+        const empty = document.createElement("div");
+        empty.className = "gallery-empty";
+        empty.innerHTML =
+          '<div><p class="eyebrow">Espaço para as lembranças</p><p>A galeria ganha vida quando os convidados compartilham os seus momentos.</p><button class="button outline" type="button">Enviar a primeira foto</button></div>';
+        empty.querySelector("button").onclick = () => open("upload-dialog");
+        grid.append(empty);
+      } else
+        shown.forEach((p) => {
+          const card = document.createElement("article");
+          card.className = "photo-card";
+          card.innerHTML =
+            '<img alt="" title="Clique para ampliar"><div class="photo-body"><div class="photo-meta"><span></span><span>Enviada agora</span></div><div class="photo-author"></div><div class="photo-actions"><span class="photo-meta"></span><button class="vote-button" type="button">Votar nesta foto</button></div></div>';
+          const img = card.querySelector("img");
+          img.src = p.url;
+          img.alt = p.moment + ", foto enviada por " + p.author;
+          img.onclick = () => {
+            chosenPhoto = p;
+            $("preview-img").src = p.url;
+            $("preview-img").alt = p.moment + ", foto por " + p.author;
+            $("preview-author").textContent = p.author;
+            $("preview-moment").textContent = p.moment;
+            $("preview-votes").textContent =
+              p.votes + " voto" + (p.votes === 1 ? "" : "s");
+            open("photo-preview-dialog");
+          };
+          card.querySelector(".photo-meta span").textContent = p.moment;
+          card.querySelector(".photo-author").textContent = p.author;
+          card.querySelector(".photo-actions span").textContent =
+            p.votes + " voto" + (p.votes === 1 ? "" : "s");
+          card.querySelector("button").onclick = () => {
+            chosenPhoto = p;
+            $("vote-form").reset();
+            $("vote-error").textContent = "";
+            open("vote-dialog");
+          };
+          grid.append(card);
+        });
+      renderRanking();
+    }
+    $("photo-files").onchange = () => {
+      $("file-status").textContent = $("photo-files").files.length
+        ? $("photo-files").files.length + " foto(s) selecionada(s)."
+        : "";
+    };
+    $("upload-form").onsubmit = (e) => {
+      e.preventDefault();
+      const name = $("photo-author").value.trim(),
+        files = [...$("photo-files").files],
+        err = $("upload-error");
+      err.textContent = "";
+      if (!name) return (err.textContent = "Informe seu nome.");
+      if (!files.length || files.length > 12)
+        return (err.textContent = "Escolha entre 1 e 12 fotos.");
+      if (
+        files.some(
+          (f) =>
+            !["image/jpeg", "image/png", "image/webp"].includes(f.type) ||
+            f.size > 10485760,
+        )
+      )
+        return (err.textContent =
+          "Use JPG, PNG ou WebP de até 10 MB por foto.");
+      files.forEach((f) =>
+        photos.push({
+          id: ++nextPhoto,
+          url: URL.createObjectURL(f),
+          author: name,
+          moment: $("photo-moment").value,
+          votes: 0,
+        }),
+      );
+      filter = "Todos";
+      document
+        .querySelectorAll("[data-filter]")
+        .forEach((x) =>
+          x.setAttribute(
+            "aria-pressed",
+            String(x.dataset.filter === "Todos"),
+          ),
+        );
+      renderGallery();
+      $("upload-dialog").close();
+      e.currentTarget.reset();
+      $("file-status").textContent = "";
+      say(files.length + " foto(s) adicionada(s) ao álbum.");
+    };
+    $("gift-form").onsubmit = (e) => {
+      e.preventDefault();
+      const name = $("gift-name").value.trim();
+      if (!name || !chosenGift) {
+        $("gift-error").textContent = "Informe seu nome para continuar.";
+        return;
+      }
+      reservations[chosenGift.id] = name;
+      write("alex-dani-gift-reservations", reservations);
+      renderGifts();
+      $("gift-dialog").close();
+      say("Presente reservado com sucesso.");
+    };
+    $("rsvp-form").onsubmit = (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.currentTarget));
+      write("alex-dani-rsvp", data);
+      $("rsvp-message").textContent =
+        data.status === "sim"
+          ? "Presença confirmada. Mal podemos esperar para celebrar com você!"
+          : "Recebemos sua resposta. Vamos sentir sua falta.";
+      e.currentTarget.reset();
+    };
+    $("vote-form").onsubmit = (e) => {
+      e.preventDefault();
+      const code = $("vote-code").value.trim().toUpperCase(),
+        err = $("vote-error");
+      err.textContent = "";
+      if (!codes.has(code))
+        return (err.textContent =
+          "Use um dos códigos de demonstração indicados.");
+      if (votes.has(code))
+        return (err.textContent = "Este código já usou o seu único voto.");
+      if (!chosenPhoto)
+        return (err.textContent = "Esta foto não está disponível.");
+      votes.set(code, chosenPhoto.id);
+      chosenPhoto.votes++;
+      renderGallery();
+      $("vote-dialog").close();
+      say("Voto confirmado. Obrigado por participar!");
+    };
+    window.addEventListener("pagehide", () =>
+      photos.forEach((p) => URL.revokeObjectURL(p.url)),
+    );
+    // Animação de Flores com Fundo 100% Transparente (Luma-Keying via WebGL/Canvas)
+    const flowerVideo = $("hero-flower-video");
+    const flowerCanvas = $("site-flower-canvas");
+    const heroPlayPauseBtn = $("hero-play-pause-btn");
+    const heroSoundBtn = $("hero-sound-btn");
+
+    // Garantir reprodução imediata sem bloqueio de autoplay
+    const triggerVideoPlay = () => {
+      if (flowerVideo) {
+        flowerVideo.muted = true;
+        const p = flowerVideo.play();
+        if (p && p.catch) {
+          p.catch(() => {});
+        }
+      }
+    };
+
+    triggerVideoPlay();
+    if (flowerVideo) {
+      flowerVideo.addEventListener("loadedmetadata", triggerVideoPlay);
+      flowerVideo.addEventListener("canplay", triggerVideoPlay);
+      flowerVideo.addEventListener("canplaythrough", triggerVideoPlay);
+    }
+    window.addEventListener("DOMContentLoaded", triggerVideoPlay);
+    window.addEventListener("load", triggerVideoPlay);
+    ["click", "touchstart", "scroll", "keydown"].forEach((evt) => {
+      window.addEventListener(evt, triggerVideoPlay, { once: true, passive: true });
+    });
+
+    if (flowerVideo && heroPlayPauseBtn) {
+      const iconPause = heroPlayPauseBtn.querySelector(".icon-pause");
+      const iconPlay = heroPlayPauseBtn.querySelector(".icon-play");
+
+      const updatePlayState = (playing) => {
+        if (iconPause) iconPause.style.display = playing ? "" : "none";
+        if (iconPlay) iconPlay.style.display = playing ? "none" : "";
+        heroPlayPauseBtn.setAttribute("aria-label", playing ? "Pausar animação" : "Reproduzir animação");
+        heroPlayPauseBtn.setAttribute("title", playing ? "Pausar animação" : "Reproduzir animação");
+      };
+
+      flowerVideo.addEventListener("play", () => updatePlayState(true));
+      flowerVideo.addEventListener("pause", () => updatePlayState(false));
+
+      heroPlayPauseBtn.onclick = () => {
+        if (flowerVideo.paused) {
+          flowerVideo.play().catch(() => {});
+        } else {
+          flowerVideo.pause();
+        }
+      };
+    }
+
+    if (flowerVideo && heroSoundBtn) {
+      const iconMuted = heroSoundBtn.querySelector(".icon-muted");
+      const iconUnmuted = heroSoundBtn.querySelector(".icon-unmuted");
+
+      const updateSoundState = (muted) => {
+        if (iconMuted) iconMuted.style.display = muted ? "" : "none";
+        if (iconUnmuted) iconUnmuted.style.display = muted ? "none" : "";
+        heroSoundBtn.setAttribute("aria-label", muted ? "Ativar som ambiente" : "Silenciar som");
+        heroSoundBtn.setAttribute("title", muted ? "Ativar som" : "Silenciar som");
+      };
+
+      flowerVideo.addEventListener("volumechange", () => updateSoundState(flowerVideo.muted));
+
+      heroSoundBtn.onclick = () => {
+        flowerVideo.muted = !flowerVideo.muted;
+        if (!flowerVideo.muted && flowerVideo.paused) {
+          flowerVideo.play().catch(() => {});
+        }
+      };
+    }
+
+    // Renderizador WebGL de Transparência de Fundo (Luma-Key na GPU)
+    if (flowerVideo && flowerCanvas) {
+      const gl = flowerCanvas.getContext("webgl", { alpha: true, premultipliedAlpha: false }) ||
+                 flowerCanvas.getContext("experimental-webgl", { alpha: true, premultipliedAlpha: false });
+
+      if (gl) {
+        const vsSource = `
+          attribute vec2 a_pos;
+          attribute vec2 a_tex;
+          varying vec2 v_tex;
+          void main() {
+            gl_Position = vec4(a_pos, 0.0, 1.0);
+            v_tex = a_tex;
+          }
+        `;
+
+        const fsSource = `
+          precision mediump float;
+          uniform sampler2D u_tex;
+          varying vec2 v_tex;
+
+          void main() {
+            vec4 c = texture2D(u_tex, v_tex);
+            // Identifica o fundo preto e ruídos de compressão
+            float brightness = max(c.r, max(c.g, c.b));
+            // Suaviza o corte para manter bordas de flores e caules naturais com 100% de alpha
+            float alpha = smoothstep(0.04, 0.16, brightness);
+
+            // Elimina o contorno escuro dividindo pelo alpha (un-premultiply)
+            vec3 rgb = c.rgb / max(alpha, 0.22);
+            rgb = clamp(rgb, 0.0, 1.0);
+
+            // Alpha puro e consistente para ambas as flores
+            gl_FragColor = vec4(rgb, c.a * alpha);
+          }
+        `;
+
+        const createShader = (type, src) => {
+          const s = gl.createShader(type);
+          gl.shaderSource(s, src);
+          gl.compileShader(s);
+          return s;
+        };
+
+        const program = gl.createProgram();
+        gl.attachShader(program, createShader(gl.VERTEX_SHADER, vsSource));
+        gl.attachShader(program, createShader(gl.FRAGMENT_SHADER, fsSource));
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+        const aPos = gl.getAttribLocation(program, "a_pos");
+        const aTex = gl.getAttribLocation(program, "a_tex");
+        const uTex = gl.getUniformLocation(program, "u_tex");
+
+        const posBuffer = gl.createBuffer();
+        const texBuffer = gl.createBuffer();
+
+        const texture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+
+        function resize() {
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          const w = Math.floor(window.innerWidth * dpr);
+          const h = Math.floor(window.innerHeight * dpr);
+          if (flowerCanvas.width !== w || flowerCanvas.height !== h) {
+            flowerCanvas.width = w;
+            flowerCanvas.height = h;
+            gl.viewport(0, 0, w, h);
+          }
+        }
+        resize();
+        window.addEventListener("resize", resize);
+
+        function renderQuad(x1, y1, x2, y2, u1, v1, u2, v2) {
+          const nx1 = (x1 / flowerCanvas.width) * 2 - 1;
+          const ny1 = 1 - (y1 / flowerCanvas.height) * 2;
+          const nx2 = (x2 / flowerCanvas.width) * 2 - 1;
+          const ny2 = 1 - (y2 / flowerCanvas.height) * 2;
+
+          gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
+          gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+            nx1, ny1,  nx2, ny1,  nx1, ny2,
+            nx1, ny2,  nx2, ny1,  nx2, ny2
+          ]), gl.DYNAMIC_DRAW);
+          gl.enableVertexAttribArray(aPos);
+          gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+          gl.bindBuffer(gl.ARRAY_BUFFER, texBuffer);
+          gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+            u1, v1,  u2, v1,  u1, v2,
+            u1, v2,  u2, v1,  u2, v2
+          ]), gl.DYNAMIC_DRAW);
+          gl.enableVertexAttribArray(aTex);
+          gl.vertexAttribPointer(aTex, 2, gl.FLOAT, false, 0, 0);
+
+          gl.drawArrays(gl.TRIANGLES, 0, 6);
+        }
+
+        function renderFrame() {
+          // Renderiza assim que o vídeo tiver dados (readyState >= 2), mesmo antes de iniciar o play
+          if (flowerVideo.readyState >= 2) {
+            gl.clearColor(0.0, 0.0, 0.0, 0.0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+
+            gl.bindTexture(gl.TEXTURE_2D, texture);
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, flowerVideo);
+
+            const cw = flowerCanvas.width;
+            const ch = flowerCanvas.height;
+            const isMob = window.innerWidth <= 600;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+            // Largura elegante da flor
+            const fw = isMob ? Math.min(cw * 0.44, 210 * dpr) : Math.min(cw * 0.36, 460 * dpr);
+
+            // Altura proporcional mantendo a escala natural (720x1280)
+            const fh = Math.max(ch * 0.96, fw * (1280.0 / 720.0));
+
+            // Raiz da flor posicionada na zona de baixo do navegador
+            const yBottom = ch;
+            const yTop = yBottom - fh;
+
+            // Flor esquerda (raiz embaixo na lateral esquerda)
+            renderQuad(0, yTop, fw, yBottom, 0.0, 0.0, 1.0, 1.0);
+
+            // Flor direita (raiz embaixo na lateral direita, espelhada com 100% de opacidade igual)
+            renderQuad(cw - fw, yTop, cw, yBottom, 1.0, 0.0, 0.0, 1.0);
+          }
+          requestAnimationFrame(renderFrame);
+        }
+        requestAnimationFrame(renderFrame);
+      } else {
+        // Fallback 2D se WebGL não for suportado
+        const ctx = flowerCanvas.getContext("2d");
+        function render2D() {
+          if (flowerVideo.readyState >= 2) {
+            flowerCanvas.width = window.innerWidth;
+            flowerCanvas.height = window.innerHeight;
+            ctx.clearRect(0, 0, flowerCanvas.width, flowerCanvas.height);
+            const isMob = window.innerWidth <= 600;
+            const fw = isMob ? Math.min(flowerCanvas.width * 0.44, 210) : Math.min(flowerCanvas.width * 0.36, 460);
+            const fh = Math.max(flowerCanvas.height * 0.96, fw * (1280.0 / 720.0));
+            const yBottom = flowerCanvas.height;
+            const yTop = yBottom - fh;
+
+            ctx.globalCompositeOperation = "screen";
+            ctx.drawImage(flowerVideo, 0, yTop, fw, fh);
+            ctx.save();
+            ctx.translate(flowerCanvas.width, 0);
+            ctx.scale(-1, 1);
+            ctx.drawImage(flowerVideo, 0, yTop, fw, fh);
+            ctx.restore();
+            ctx.globalCompositeOperation = "source-over";
+          }
+          requestAnimationFrame(render2D);
+        }
+        requestAnimationFrame(render2D);
+      }
+    }
+
+    // Votar a partir do modal de visualização de foto
+    const previewVoteBtn = $("preview-vote-btn");
+    if (previewVoteBtn) {
+      previewVoteBtn.onclick = () => {
+        $("photo-preview-dialog").close();
+        $("vote-form").reset();
+        $("vote-error").textContent = "";
+        open("vote-dialog");
+      };
+    }
+
+    // Copiar chave PIX no modal de presentes
+    const copyPixBtn = $("copy-pix-btn");
+    if (copyPixBtn) {
+      copyPixBtn.onclick = async () => {
+        const key = $("pix-key-val").textContent.trim();
+        try {
+          await navigator.clipboard.writeText(key);
+          copyPixBtn.textContent = "Copiado!";
+          setTimeout(() => (copyPixBtn.textContent = "Copiar"), 2500);
+          say("Chave PIX copiada para a área de transferência!");
+        } catch {
+          say("Chave PIX: " + key);
+        }
+      };
+    }
+
+    // Header com elevação ao rolar e botão Voltar ao Topo
+    const backToTopBtn = $("back-to-top");
+    const headerEl = document.querySelector("header");
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      if (headerEl) headerEl.classList.toggle("scrolled", y > 60);
+      if (backToTopBtn) backToTopBtn.classList.toggle("visible", y > 400);
+    }, { passive: true });
+
+    if (backToTopBtn) {
+      backToTopBtn.onclick = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+    }
+
+    renderGifts();
+    renderGallery();
+    renderRanking();
+  </script>
+</body>
+
+</html>

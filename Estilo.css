@@ -1,0 +1,83 @@
+:root{
+  --ink:#1b2a52;
+  --sea:#4f78b5;
+  --mist:#eef2f8;
+  --paper:#fbfcfe;
+  --line:#cfd8e8;
+  --serif:"Bodoni Moda", Georgia, "Times New Roman", serif;
+  --sans:"Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--ink:#e8edf8;--sea:#8fb0e0;--mist:#17213f;--paper:#101830;--line:#2c3a63}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:300 1.1rem/1.7 var(--sans)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
+
+/* Padrão de azulejo feito só com CSS */
+.tiles{
+  position:absolute;inset:0;opacity:.18;
+  background-color:transparent;
+  background-size:56px 56px;
+  background-image:
+    radial-gradient(circle at center, transparent 0 7px, var(--sea) 8px 10px, transparent 11px),
+    radial-gradient(circle at 0 0, var(--sea) 0 9px, transparent 10px),
+    radial-gradient(circle at 100% 0, var(--sea) 0 9px, transparent 10px),
+    radial-gradient(circle at 0 100%, var(--sea) 0 9px, transparent 10px),
+    radial-gradient(circle at 100% 100%, var(--sea) 0 9px, transparent 10px);
+}
+
+.menu{
+  position:sticky;top:0;z-index:10;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;
+  padding:.9rem 1rem;background:color-mix(in srgb,var(--paper) 90%,transparent);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--line);font-size:.95rem;
+}
+.menu a{text-decoration:none;font-weight:400}
+.menu a:hover{text-decoration:underline;text-underline-offset:5px}
+
+.hero{position:relative;min-height:88vh;display:grid;place-items:center;text-align:center;background:var(--mist);overflow:hidden;padding:4rem 1.5rem}
+.hero-inner{position:relative;background:var(--paper);padding:3.5rem clamp(1.5rem,6vw,4.5rem);border:1px solid var(--sea);outline:1px solid var(--sea);outline-offset:8px}
+.hero-note{margin:0 0 .5rem;font-style:italic;font-family:var(--serif);font-size:1.2rem}
+h1{font:400 clamp(3.2rem,11vw,7rem)/1 var(--serif);margin:.2em 0;letter-spacing:-.01em}
+h1 span{font-style:italic;font-weight:400;color:var(--sea);padding:0 .1em}
+.hero-date{margin:0 0 2rem;font-size:1.15rem}
+
+.btn{display:inline-block;padding:.85rem 2rem;background:var(--ink);color:var(--paper);border:1px solid var(--ink);font:400 1rem var(--sans);text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:var(--sea);border-color:var(--sea)}
+.btn-outline{background:transparent;color:var(--ink)}
+.btn-outline:hover{color:var(--paper)}
+
+.section{padding:5rem 1.5rem}
+.band{background:var(--mist)}
+.narrow{max-width:42rem;margin-inline:auto}
+.section.narrow{padding-inline:1.5rem}
+h2{font:400 clamp(2rem,5vw,2.8rem)/1.15 var(--serif);margin:0 0 1.5rem}
+h3{font:500 1.15rem var(--serif);margin:0 0 .2rem}
+p{margin:0 0 1.1rem}
+
+.timeline{list-style:none;margin:2rem 0 0;padding:0;border-left:2px solid var(--sea)}
+.timeline li{display:grid;grid-template-columns:5rem 1fr;gap:1rem;padding:0 0 2rem 1.5rem;position:relative}
+.timeline li::before{content:"";position:absolute;left:-7px;top:.55rem;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--sea)}
+.timeline time{font:500 1.35rem var(--serif);color:var(--sea)}
+.timeline p{margin:0}
+
+.rsvp{display:grid;gap:1.2rem;margin-top:2rem}
+.rsvp label{display:grid;gap:.35rem;font-weight:400}
+.rsvp input[type=text],.rsvp input[type=email],.rsvp input[type=number],.rsvp textarea{
+  width:100%;padding:.75rem .9rem;font:300 1rem var(--sans);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:2px}
+.rsvp fieldset{border:1px solid var(--line);padding:.9rem 1rem;margin:0;display:grid;gap:.4rem}
+.rsvp legend{padding:0 .4rem;font-weight:400}
+.rsvp .radio{display:flex;gap:.6rem;align-items:center;font-weight:300}
+.rsvp .btn{justify-self:start}
+
+.footer{position:relative;text-align:center;padding:4rem 1.5rem;background:var(--mist);overflow:hidden}
+.footer p{position:relative;margin:0 0 .3rem;font-family:var(--serif);font-size:1.4rem}
+.footer .small{font:300 .95rem var(--sans)}
+
+@media (max-width:520px){
+  .timeline li{grid-template-columns:1fr;gap:0}
+  .hero-inner{outline-offset:5px}
+}

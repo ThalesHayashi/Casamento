@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marta &amp; João · 12 de setembro de 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Estilo.css">
+</head>
+<body>
+
+<nav class="menu" aria-label="Principal">
+  <a href="#historia">História</a>
+  <a href="#programa">Programa</a>
+  <a href="#local">Local</a>
+  <a href="#rsvp">Confirmar presença</a>
+</nav>
+
+<header class="hero">
+  <div class="tiles" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-note">Vamos casar!</p>
+    <h1>Marta <span>&amp;</span> João</h1>
+    <p class="hero-date">12 de setembro de 2027 · Sintra</p>
+    <a class="btn" href="#rsvp">Confirmar presença</a>
+  </div>
+</header>
+
+<main>
+  <section id="historia" class="section narrow">
+    <h2>A nossa história</h2>
+    <p>Conhecemo-nos numa noite de chuva, num café em Lisboa, onde só havia uma mesa livre. Dividimo-la, e nunca mais nos separámos.</p>
+    <p>Sete anos, duas mudanças de casa e uma gata depois, decidimos que está na hora de celebrar com as pessoas que mais amamos. Sem protocolos a mais, com boa comida e muita música.</p>
+  </section>
+
+  <section id="programa" class="section band">
+    <div class="narrow">
+      <h2>Programa do dia</h2>
+      <ol class="timeline">
+        <li><time>15:00</time><div><h3>Cerimónia</h3><p>Nos jardins da quinta. Pedimos que chegue com 20 minutos de antecedência.</p></div></li>
+        <li><time>16:00</time><div><h3>Cocktail</h3><p>Petiscos, vinho verde e fotografias ao pôr do sol.</p></div></li>
+        <li><time>19:30</time><div><h3>Jantar</h3><p>Mesas compridas no salão principal.</p></div></li>
+        <li><time>22:00</time><div><h3>Festa</h3><p>Abertura de pista e bolo. Venha de sapatos confortáveis.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="local" class="section narrow">
+    <h2>Local</h2>
+    <p><strong>Quinta da Serra</strong><br>Estrada da Serra 123, 2710-000 Sintra</p>
+    <p>Há estacionamento no local. Haverá autocarro de regresso a Lisboa à 1h00 e às 3h00.</p>
+    <a class="btn btn-outline" href="https://maps.google.com/?q=Sintra" target="_blank" rel="noopener">Abrir no mapa</a>
+  </section>
+
+  <section id="rsvp" class="section band">
+    <div class="narrow">
+      <h2>Confirmar presença</h2>
+      <p>Diga-nos até 1 de julho de 2027 se podemos contar consigo.</p>
+      <form class="rsvp" action="https://formspree.io/f/SEU_ID" method="POST">
+        <label>Nome completo
+          <input type="text" name="nome" required autocomplete="name">
+        </label>
+        <label>Email
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+        <fieldset>
+          <legend>Vai estar presente?</legend>
+          <label class="radio"><input type="radio" name="presenca" value="sim" required> Sim, com muito gosto</label>
+          <label class="radio"><input type="radio" name="presenca" value="nao"> Infelizmente não posso</label>
+        </fieldset>
+        <label>Número de acompanhantes
+          <input type="number" name="acompanhantes" min="0" max="5" value="0">
+        </label>
+        <label>Restrições alimentares
+          <textarea name="alimentacao" rows="3" placeholder="Vegetariano, alergias, etc."></textarea>
+        </label>
+        <button class="btn" type="submit">Enviar resposta</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="tiles" aria-hidden="true"></div>
+  <p>Marta &amp; João · 12.09.2027</p>
+  <p class="small">Dúvidas? Escreva-nos para casamento@exemplo.pt</p>
+</footer>
+
+</body>
+</html>
